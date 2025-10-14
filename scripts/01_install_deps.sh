@@ -11,7 +11,7 @@ sudo apt update
 # Core build deps
 sudo apt install -y --no-install-recommends \
   build-essential cmake ninja-build git wget p7zip-full \
-  libopenblas-dev
+  libopenblas-dev libcurl4-openssl-dev
 
 if [[ $CUDA -eq 1 ]]; then
   echo "[+] Installing CUDA toolkit inside WSL (cuBLAS build path)"

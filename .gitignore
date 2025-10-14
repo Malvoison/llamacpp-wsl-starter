@@ -13,3 +13,5 @@ __pycache__/
 # OS noise
 .DS_Store
 Thumbs.db
+# Upstream llama.cpp source
+external/llama.cpp/
