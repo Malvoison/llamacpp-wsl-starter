@@ -1,0 +1,20 @@
+name: CI (Ubuntu CPU build)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: sudo apt update && sudo apt install -y build-essential cmake ninja-build libopenblas-dev git
+      - name: Clone llama.cpp
+        run: git clone --depth=1 https://github.com/ggerganov/llama.cpp.git
+      - name: Build
+        run: |
+          mkdir -p build && cd build
+          cmake -G Ninja -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS -DCMAKE_BUILD_TYPE=Release ..
+          ninja

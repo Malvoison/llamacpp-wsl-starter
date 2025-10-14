@@ -1,0 +1,15 @@
+# Ignore downloaded/converted model weights and caches
+models/**
+!models/.gitkeep
+
+# Build artifacts
+build/**
+cmake-build-*/
+
+# Virtualenvs / python caches
+.venv/
+__pycache__/
+
+# OS noise
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+services:
+  llama:
+    build:
+      context: ./infra
+      args:
+        ENABLE_CUDA: "${ENABLE_CUDA:-0}"
+    image: ken/llamacpp-wsl:local
+    environment:
+      - MODEL=${MODEL:-/models/model.gguf}
+      - ARGS=${ARGS:-}
+    volumes:
+      - ./models:/models
+    ports:
+      - "8080:8080"
+    command: >
+      bash -lc "llama-server -m ${MODEL} --host 0.0.0.0 --port 8080 ${ARGS}"
