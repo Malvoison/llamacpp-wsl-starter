@@ -21,4 +21,4 @@ if [[ ! -x "${BIN}" ]]; then
   exit 1
 fi
 
-exec "${BIN}" -m "${MODEL}" -p "You are a helpful assistant." -n 512 "$@"
+exec "${BIN}" -m "${MODEL}" -p "You are a helpful assistant." -n -1 "$@"
